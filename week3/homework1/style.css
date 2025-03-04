@@ -1,0 +1,50 @@
+.header{
+    text-align: center;
+    margin-top: 3rem;
+}
+#formStudent{
+    justify-content: center;
+    text-align: center;
+    margin-top: 5rem;
+}
+table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+table, th, td {
+    border: 1.5px solid black;
+}
+th, td {
+    padding: 20px;
+    text-align: center;
+}
+tr:hover {
+    background-color: #e1e1e1;
+}
+input[type="text"] {
+    margin: 10px;
+    padding: 8px;
+}
+#addStudent {
+    padding: 10px 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#addStudent:hover {
+    background-color: #31BC61;
+}
+.deleteBtn{
+    padding: 10px 30px;
+    background-color: #0096FF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.deleteBtn:hover{
+    background-color: #ff0000;
+}
