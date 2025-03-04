@@ -21,7 +21,7 @@ function updateTable() {
 }
 
 $('#addStudent').click(function (e) {
-  event.preventDefault();
+  e.preventDefault();
 
   const name = $('#studentName').val();
   const studentClass = $('#studentClass').val();
