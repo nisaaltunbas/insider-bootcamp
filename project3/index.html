@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Products</h1>
+    <div>
+        <input type="text" id="search-input" placeholder="Search product" />
+        <button id="search-btn">&#128269;</button>
+    </div>
+
+
+    <div id="cart">Cart: <span id="cart-count">0</span></div>
+    <button id="clear-cart">Clear Cart</button>
+
+    <div id="main-cart"></div>
+
+    <div id="products"></div>
+
+    <div id="overlay"></div>
+    <div id="product-detail">
+        <div class="carousel">
+            <img id="carousel-img" src="" alt="Product Image">
+        </div>
+        <button id="close">X</button>
+        <h2 id="detail-title"></h2>
+        <p id="detail-description"></p>
+        <p id="detail-price"></p>
+        <button id="prev-product">&laquo; Prev Product</button>
+        <button id="next-product">Next Product &raquo;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
