@@ -77,15 +77,15 @@ function displayUsers(users) {
 }
 
 function createUserElement(user) {
-  const userDiv = document.createElement('div');
-  userDiv.classList.add('user-item');
-  userDiv.innerHTML = `
+  const userInfo = document.createElement('div');
+  userInfo.classList.add('user-item');
+  userInfo.innerHTML = `
     <strong>${user.name}</strong><br>
     <span>Email: ${user.email}</span><br>
     <span>Address: ${user.address.street}, ${user.address.city}, ${user.address.zipcode}</span>
     <button class="delete-btn" onclick="deleteUser(${user.id})">Delete</button>
   `;
-  return userDiv;
+  return userInfo;
 }
 
 async function deleteUser(userId) {
