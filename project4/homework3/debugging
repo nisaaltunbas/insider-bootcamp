@@ -1,0 +1,43 @@
+1.Stok Güncelleme
+addItem ve removeItem fonksiyonlarına baktığımızda bu fonksiyonlar sepete ürün eklerken ve çıkarırken stok kontrolü yapıyor ama yanlış yapıyor. addItem fonksiyonunda stok kontrolü yaparken product.stock <= quantity kullanılmış. Buradaki kontrol yanlış çünkü stok, eklediğimiz miktardan fazla ya da eşit olmalı. Burada doğru kontrol product.stock < quantity olmalı.
+
+if (product.stock < quantity) {
+  throw new Error('Yetersiz stok!');
+}
+
+
+2.Toplam Hesaplaması
+calculateTotal fonksiyonuna baktığımızda, ürünlerin miktarlarının hesaba katılmadığını görüyoruz. Sadece fiyatları toplanıyor. Her yeni ürün eklendiğinde doğru toplam fiyat hesaplanmıyor. Çünkü sadece ürün fiyatı dikkate alınıyor ve ürünün miktarı çarpılmıyor.
+
+this.total = this.items.reduce((sum, item) => {
+  return sum + (item.price * item.quantity);
+}, 0);
+
+
+3.İndirim Uygulama
+İndirim kodu INDIRIM10 doğru çalışıyor ancak indirim uygulandıktan sonra toplam fiyatın %10'unu alıyor. İndirimden sonra fiyat sıfırlanıyor.Bu indirimi doğru şekilde uygulamak için toplamı %10 oranında yapmalıyız.
+
+if (this.discountApplied && this.total > 0) {
+  this.total *= 0.9; 
+}
+
+
+4.UI Güncelleme
+UI kısmında ürünleri ekleyip sepeti güncellerken sorun yok ama sepet güncellenirken bazen hata mesajları üst üste ekleniyor. Hata mesajları her seferinde birikiyor ve örnek olarak sepete ürün eklerken bir hata oluşursa, önceki mesajlar üzerine eklenme durumunu görebiliriz. 
+
+showError(message) {
+  const errorElement = document.getElementById('error');
+  if (errorElement) {
+    errorElement.textContent = ''; 
+    errorElement.textContent = message;
+  }
+}
+
+
+5.Stok Güncelleme
+Sepet güncellenirken stok miktarı doğru yapılmıyor. Özellikle ürün sepetten çıkarıldığında stok birimleri yanlış gösteriyor. removeItem fonksiyonunda, stok miktarını artırırken her zaman 1 arttırılıyor. Fakat doğru olan çıkarılan öğenin miktarı kadar stok arttırmak.
+
+if (product) {
+  product.stock += item.quantity; 
+}
+
